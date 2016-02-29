@@ -1,0 +1,49 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'war'
+
+group = 'org.gooru.doc'
+version = '0.1'
+description = 'PDF Viewer'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+
+repositories {
+     mavenCentral()        
+}
+dependencies {
+    compile group: 'org.springframework', name: 'spring-expression', version:'4.1.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-tx', version:'4.1.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-aspects', version:'4.1.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version:'4.1.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-orm', version:'4.1.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-oxm', version:'4.1.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-core', version:'4.1.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version:'4.1.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-aop', version:'4.1.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version:'4.1.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version:'4.1.4.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-core', version:'4.0.1.RELEASE'
+    compile group: 'javax.servlet', name: 'servlet-api', version:'2.3'
+    compile group: 'org.bouncycastle', name: 'bcprov-jdk15on', version:'1.50'
+    compile group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version:'1.50'
+    compile group: 'com.itextpdf.tool', name: 'xmlworker', version:'5.5.0'
+    compile group: 'com.itextpdf', name: 'itextpdf', version:'5.5.0'
+    compile group: 'commons-lang', name: 'commons-lang', version:'2.6'
+    compile group: 'commons-httpclient', name: 'commons-httpclient', version:'3.1'
+    compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.12'
+    compile group: 'javax.servlet', name: 'jstl', version:'1.1.2'
+    compile group: 'taglibs', name: 'standard', version:'1.1.2'
+}
+
+task deploy (type: War, dependsOn: []){
+   archiveName "nucleus-docviewer.war" 
+   copy {
+        from "build/libs"
+        into "${System.env.CATALINA_HOME}/webapps"
+        include "nucleus-docviewer.war"
+    }
+}
