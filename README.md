@@ -1,9 +1,10 @@
-# nucleus-docviewer
+Nucleus-Docviewer
+===================
 
-Current implementation of document viewer module have the support  to render the PDF file  based on browser compatibility, and also it has the feature to render only specified pages.
+Current implementation of document viewer module have the support  to render the PDF file  based on browser compatibility, and also it has the feature to render only the specified pages.
 
 
-## Browser compatibility
+## Browser compatibility and usage of third party PDF viewer
 
    -  Other than IE browser  will use the PDF JS viewer.
    -  IE browser will use flex PDF viewer library.
