@@ -10,7 +10,7 @@ Building nucleus-docviewer
 
 ## Running Build
 
-The default task is *war* which is provided by plugin. So running *gradle* from command line will run *war* and it will create a war in build/libs folder. Note that there is artifact name specified in build file and hence it will take the name from directory housing the project.
+Running *gradle war* from command line will create a war in build/libs folder. Note that there is artifact name specified in build file and hence it will take the name from directory housing the project.
 
 Once the war is created, copy that file to tomcat web-server and rename war file name as nucleus-docviewer.war, then start the tomcat web-server.
 
